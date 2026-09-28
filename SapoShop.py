@@ -1,4 +1,4 @@
-
+import datetime
 import sqlite3
 import os , platform
 from datetime import date, timedelta
@@ -19,6 +19,7 @@ print("=======================")
 print("Welcome to SaPo Shop")
 print("=======================")
 print("Loading ")
+time.sleep(1.5)
 cleener()
 
 
@@ -114,8 +115,10 @@ while True:
         if editchoice == "2":
             def recipt():
                 price = 0
+                print("SaPo market")
+                print(datetime.date.today())
                 for item in cart:
-                    print("SaPo market")
+
                     print("=======================")
                     print("product:" + str(item[1]), "\namount:" + str(item[2]), "\nprice:$" + str(item[3]))
                     price += float(item[3])

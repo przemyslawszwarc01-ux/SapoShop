@@ -4,7 +4,7 @@ import os , platform
 from datetime import date, timedelta
 import time
 cart = []
-connection = sqlite3.connect("amphi_stockfinal.db")
+connection = sqlite3.connect("sapo_stockfinal.db")
 c = connection.cursor()
 d = date.today()
 
@@ -16,7 +16,7 @@ def cleener() :
         os.system('clear')
 
 print("=======================")
-print("Welcome to Amphi Shop")
+print("Welcome to SaPo Shop")
 print("=======================")
 print("Loading ")
 cleener()
@@ -115,7 +115,7 @@ while True:
             def recipt():
                 price = 0
                 for item in cart:
-                    print("Amphi market")
+                    print("SaPo market")
                     print("=======================")
                     print("product:" + str(item[1]), "\namount:" + str(item[2]), "\nprice:$" + str(item[3]))
                     price += float(item[3])

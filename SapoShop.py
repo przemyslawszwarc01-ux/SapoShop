@@ -26,7 +26,7 @@ cleener()
 while True:
     print ("choose action or scan a product")
     print("add product-1")
-    print("print cart-2")
+    print("checkout-2")
     print("catalog-3")
     menu_choice = input(":")
     cleener()
@@ -113,17 +113,30 @@ while True:
         editchoice = input("to edit press 1 \nto print press 2 \n:")
 
         if editchoice == "2":
-            def recipt():
-                price = 0
+            payprice = float(input("How much has the customer paid? "))
+
+            if payprice >= price:
+                change = payprice - price
+                print(f"The change is ${change:.2f}")
+            else:
+                remainingprice = price - payprice
+                print(f"You need to pay ${remainingprice:.2f} more")
+
+
+            def receipt(cart, payprice, change):
+                total = 0
                 print("SaPo market")
                 print(datetime.date.today())
                 for item in cart:
-
                     print("=======================")
-                    print("product:" + str(item[1]), "\namount:" + str(item[2]), "\nprice:$" + str(item[3]))
-                    price += float(item[3])
+                    print(f"product: {item[1]}")
+                    print(f"amount: {item[2]}")
+                    print(f"price: ${float(item[3]):.2f}")
+                    total += float(item[3])
                 print("=======================")
-                print("your total price is $" + str(price))
+                print(f"your total price is ${total:.2f}")
+                print(f"payed: ${payprice:.2f}")
+                print(f"change: ${change:.2f}")
 
                 for item in cart:
                     code = item[0]
